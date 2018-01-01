@@ -27,49 +27,44 @@ public class GameTrainer extends AppCompatActivity {
     Button bottomRight;
     int totalClicked = 1;
     int totalVal = 0;
-    int totalCorrect = 1;
+    int totalCorrect = 0;
     Random rand = new Random();
+    int correctAnswerIndex;
 
     public int setTotalClicked() {
         return totalClicked++;
     }
 
-    public int addTotalCorrect() {
-        return totalCorrect++;
-    }
 
     public int randomMultiplyVal() {
         int randVal = rand.nextInt(14) + 1;
         return randVal;
     }
 
-    public int getRandomNum(List<Integer> list) {
-
-        int index = rand.nextInt(list.size());
-        return list.get(index);
-    }
-
     public void valueChange(View view) {
 
         int randVal1 = randomMultiplyVal();
         int randVal2 = randomMultiplyVal();
-
-        int randNum = rand.nextInt(200) + 1;
-        int randNum1 = rand.nextInt(200) + 1;
-        int randNum2 = rand.nextInt(200) + 1;
         int multiplyAnswer = randVal1 * randVal2;
-        int totalCorrect = 0;
+        int incorrectAnswer;
+
+         correctAnswerIndex = rand.nextInt(4);
 
         List<Integer> randValues = new ArrayList<>();
-        randValues.add(randNum);
-        randValues.add(randNum1);
-        randValues.add(randNum2);
-        randValues.add(multiplyAnswer);
 
-        bottomRight.setText(Integer.toString(getRandomNum(randValues)));
-        topRight.setText(Integer.toString(getRandomNum(randValues)));
-        topLeft.setText(Integer.toString(getRandomNum(randValues)));
-        bottomLeft.setText(Integer.toString(getRandomNum(randValues)));
+        for(int i = 0; i < 4; i++) {
+            if(i == correctAnswerIndex) {
+                randValues.add(multiplyAnswer);
+            } else {
+                incorrectAnswer = rand.nextInt(200) + 1;
+                randValues.add(incorrectAnswer);
+            }
+        }
+
+        bottomRight.setText(Integer.toString(randValues.get(0)));
+        topRight.setText(Integer.toString(randValues.get(1)));
+        topLeft.setText(Integer.toString(randValues.get(2)));
+        bottomLeft.setText(Integer.toString(randValues.get(3)));
 
         totalVal = setTotalClicked();
 
@@ -78,11 +73,11 @@ public class GameTrainer extends AppCompatActivity {
         Button b = (Button)view;
         String buttonText = b.getText().toString();
 
-        if(buttonText.equals(Integer.toString(multiplyAnswer))) {
-            totalCorrect = addTotalCorrect();
+        if(view.getTag().toString().equals(Integer.toString(correctAnswerIndex))) {
+            totalCorrect++;
         }
 
-        scoreCount.setText(Integer.toString(totalCorrect ) + "/" + Integer.toString(totalVal));
+        scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
 
     }
 
@@ -100,11 +95,13 @@ public class GameTrainer extends AppCompatActivity {
         bottomRight = (Button) findViewById(R.id.bottomRight);
 
 
+
+
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 //  mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
-                 secondsRemain.setText(Integer.toString(  (int) millisUntilFinished / 1000));
+                secondsRemain.setText(Integer.toString(  (int) millisUntilFinished / 1000));
             }
 
             public void onFinish() {
