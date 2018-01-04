@@ -19,7 +19,7 @@ import java.util.Random;
 
 
  public class GameTrainer extends AppCompatActivity {
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
 
     TextView secondsRemain;
     TextView scoreCount;
@@ -36,7 +36,7 @@ import java.util.Random;
     Random r = new Random();
     int correctAnswerIndex;
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
 
     // function that increaments count when button is clicked
     public int setTotalClicked() {
@@ -58,7 +58,7 @@ import java.util.Random;
         int randVal2 = randomMultiplyVal();
         int multiplyAnswer = randVal1 * randVal2;
         int incorrectAnswer;
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
 
         // stores a rand index value from 0-3 and then in teh for loop checks if the index values match
         correctAnswerIndex = rand.nextInt(4);
@@ -70,7 +70,7 @@ import java.util.Random;
             if(i == correctAnswerIndex) {
 
                 randValues.add(multiplyAnswer);
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
             } else {
                 incorrectAnswer = r.nextInt(200) + 1;
                 randValues.add(incorrectAnswer);
@@ -102,7 +102,7 @@ import java.util.Random;
 
         return multiplyAnswer;
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
 
     }
 
@@ -125,7 +125,7 @@ import java.util.Random;
 
         ) {
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
             @Override
             public void onClick(View view) {
 
@@ -146,7 +146,6 @@ import java.util.Random;
                 }
 
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
             }
         });
@@ -172,7 +171,6 @@ import java.util.Random;
                 }
 
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
             }
         });
@@ -198,7 +196,7 @@ import java.util.Random;
                 }
 
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
             }
         });
 
@@ -223,7 +221,7 @@ import java.util.Random;
                 }
 
 
->>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
+
             }
         });
 
