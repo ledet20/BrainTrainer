@@ -12,10 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+<<<<<<< HEAD
 
 public class GameTrainer extends AppCompatActivity {
 >>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
 
+=======
+public class GameTrainer extends AppCompatActivity {
+>>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
 
     TextView secondsRemain;
     TextView scoreCount;
@@ -33,8 +37,6 @@ public class GameTrainer extends AppCompatActivity {
     int correctAnswerIndex;
 
 
-    // function that increments count when button is clicked
->>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
     public int setTotalClicked() {
         return totalClicked++;
     }
@@ -62,7 +64,7 @@ public class GameTrainer extends AppCompatActivity {
 
         for (int i = 0; i < 4; i++) {
             if (i == correctAnswerIndex) {
->>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
+
                 randValues.add(multiplyAnswer);
 
             } else {
@@ -83,7 +85,6 @@ public class GameTrainer extends AppCompatActivity {
             bottomLeft.setText(Integer.toString(randValues.get(3)));
         }
 
-
         totalVal = setTotalClicked();
 
         multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2));
@@ -100,7 +101,6 @@ public class GameTrainer extends AppCompatActivity {
 
         return multiplyAnswer;
 
->>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
     }
 
 
