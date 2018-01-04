@@ -16,7 +16,10 @@ import java.util.Random;
  * Created by ledet awano on 12/30/2017.
  */
 
-public class GameTrainer extends AppCompatActivity {
+
+
+ public class GameTrainer extends AppCompatActivity {
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
     TextView secondsRemain;
     TextView scoreCount;
@@ -32,7 +35,8 @@ public class GameTrainer extends AppCompatActivity {
     Random rand = new Random();
     Random r = new Random();
     int correctAnswerIndex;
-    int incorrectAnswer;
+
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
     // function that increaments count when button is clicked
     public int setTotalClicked() {
@@ -53,20 +57,8 @@ public class GameTrainer extends AppCompatActivity {
         int randVal1 = randomMultiplyVal();
         int randVal2 = randomMultiplyVal();
         int multiplyAnswer = randVal1 * randVal2;
-
-        multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2) );
-
-
-        return multiplyAnswer;
-
-
-    }
-
-    public void generateRandomValue(int val) {
-
-        totalVal = setTotalClicked();
-
-        scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
+        int incorrectAnswer;
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
         // stores a rand index value from 0-3 and then in teh for loop checks if the index values match
         correctAnswerIndex = rand.nextInt(4);
@@ -76,7 +68,9 @@ public class GameTrainer extends AppCompatActivity {
         // for loop that add values to the arrayList
         for(int i = 0; i < 4; i++) {
             if(i == correctAnswerIndex) {
-                randValues.add(val);
+
+                randValues.add(multiplyAnswer);
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
             } else {
                 incorrectAnswer = r.nextInt(200) + 1;
                 randValues.add(incorrectAnswer);
@@ -90,6 +84,25 @@ public class GameTrainer extends AppCompatActivity {
         topLeft.setText(Integer.toString(randValues.get(2)));
         bottomLeft.setText(Integer.toString(randValues.get(3)));
 
+
+        totalVal = setTotalClicked();
+
+        multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2) );
+
+
+        // if statement that checks if the current button tag is eqaul to the answer index
+        // currently this implentation is not working
+      // if(view.toString().equals(Integer.toString(multiplyAnswer))){
+       //   totalCorrect++;
+        //   Log.i("the value is" , "CORREC");
+      // }
+
+        scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
+
+
+        return multiplyAnswer;
+
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
     }
 
@@ -112,6 +125,7 @@ public class GameTrainer extends AppCompatActivity {
 
         ) {
 
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
             @Override
             public void onClick(View view) {
 
@@ -131,7 +145,8 @@ public class GameTrainer extends AppCompatActivity {
                     totalCorrect++;
                 }
 
-                generateRandomValue(val);
+
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
             }
         });
@@ -156,7 +171,8 @@ public class GameTrainer extends AppCompatActivity {
                     totalCorrect++;
                 }
 
-                generateRandomValue(val);
+
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
 
             }
         });
@@ -181,8 +197,8 @@ public class GameTrainer extends AppCompatActivity {
                     totalCorrect++;
                 }
 
-                generateRandomValue(val);
 
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
             }
         });
 
@@ -206,7 +222,8 @@ public class GameTrainer extends AppCompatActivity {
                     totalCorrect++;
                 }
 
-                generateRandomValue(val);
+
+>>>>>>> 885b7b50cc619c2c9378a23aadeacefc540de58e
             }
         });
 
