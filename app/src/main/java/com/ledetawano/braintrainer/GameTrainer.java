@@ -12,13 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by ledet awano on 12/30/2017.
- */
 
-
-
- public class GameTrainer extends AppCompatActivity {
+public class GameTrainer extends AppCompatActivity {
+>>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
 
 
     TextView secondsRemain;
@@ -37,20 +33,17 @@ import java.util.Random;
     int correctAnswerIndex;
 
 
-
-    // function that increaments count when button is clicked
+    // function that increments count when button is clicked
+>>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
     public int setTotalClicked() {
         return totalClicked++;
     }
-
 
     // function that generate random values to be multiplied
     public int randomMultiplyVal() {
         int randVal = rand.nextInt(14) + 1;
         return randVal;
     }
-
-
 
     public int valueChangeOnClick(View view) {
 
@@ -66,9 +59,10 @@ import java.util.Random;
         randValues = new ArrayList<Integer>();
 
         // for loop that add values to the arrayList
-        for(int i = 0; i < 4; i++) {
-            if(i == correctAnswerIndex) {
 
+        for (int i = 0; i < 4; i++) {
+            if (i == correctAnswerIndex) {
+>>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
                 randValues.add(multiplyAnswer);
 
             } else {
@@ -79,31 +73,34 @@ import java.util.Random;
         }
 
         // adds random values to the buttons
-        bottomRight.setText(Integer.toString(randValues.get(0)));
-        topRight.setText(Integer.toString(randValues.get(1)));
-        topLeft.setText(Integer.toString(randValues.get(2)));
-        bottomLeft.setText(Integer.toString(randValues.get(3)));
+        if (view.getId() == bottomRight.getId()) {
+            bottomRight.setText(Integer.toString(randValues.get(0)));
+        } else if (view.getId() == topRight.getId()) {
+            topRight.setText(Integer.toString(randValues.get(1)));
+        } else if (view.getId() == topLeft.getId()) {
+            topLeft.setText(Integer.toString(randValues.get(2)));
+        } else if (view.getId() == bottomLeft.getId()) {
+            bottomLeft.setText(Integer.toString(randValues.get(3)));
+        }
 
 
         totalVal = setTotalClicked();
 
-        multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2) );
+        multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2));
 
 
         // if statement that checks if the current button tag is eqaul to the answer index
         // currently this implentation is not working
-      // if(view.toString().equals(Integer.toString(multiplyAnswer))){
-       //   totalCorrect++;
+        // if(view.toString().equals(Integer.toString(multiplyAnswer))){
+        //   totalCorrect++;
         //   Log.i("the value is" , "CORREC");
-      // }
+        // }
 
         scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
 
-
         return multiplyAnswer;
 
-
-
+>>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
     }
 
 
@@ -130,17 +127,17 @@ import java.util.Random;
             public void onClick(View view) {
 
                 // returns multiplied value generated from function
-               int val =  valueChangeOnClick(view);
+                int val = valueChangeOnClick(view);
 
                 // get the text of the current button
-                topLeft = (Button)view;
+                topLeft = (Button) view;
                 String buttonText = topLeft.getText().toString();
 
-              //  Log.i("top Left Val", Integer.toString(val));
+                //  Log.i("top Left Val", Integer.toString(val));
                 Log.i("button text", buttonText);
                 Log.i("multiplied val", Integer.toString(val));
 
-                if(buttonText.equals(Integer.toString(val))) {
+                if (buttonText.equals(Integer.toString(val))) {
                     Log.i("top Left Val", Integer.toString(val));
                     totalCorrect++;
                 }
@@ -156,16 +153,16 @@ import java.util.Random;
             @Override
             public void onClick(View view) {
 
-                int val =  valueChangeOnClick(view);
+                int val = valueChangeOnClick(view);
 
-                topRight = (Button)view;
+                topRight = (Button) view;
                 String buttonText = topRight.getText().toString();
 
                 //  Log.i("top Left Val", Integer.toString(val));
                 Log.i("button text", buttonText);
                 Log.i("multiplied val", Integer.toString(val));
 
-                if(buttonText.equals(Integer.toString(val))) {
+                if (buttonText.equals(Integer.toString(val))) {
                     Log.i("top Right Val", Integer.toString(val));
                     totalCorrect++;
                 }
@@ -181,16 +178,16 @@ import java.util.Random;
             @Override
             public void onClick(View view) {
 
-                int val =  valueChangeOnClick(view);
+                int val = valueChangeOnClick(view);
 
-                bottomLeft = (Button)view;
+                bottomLeft = (Button) view;
                 String buttonText = bottomLeft.getText().toString();
 
                 //  Log.i("top Left Val", Integer.toString(val));
                 Log.i("button text", buttonText);
                 Log.i("multiplied val", Integer.toString(val));
 
-                if(buttonText.equals(Integer.toString(val))) {
+                if (buttonText.equals(Integer.toString(val))) {
                     Log.i("bottom left Val", Integer.toString(val));
                     totalCorrect++;
                 }
@@ -206,16 +203,16 @@ import java.util.Random;
             @Override
             public void onClick(View view) {
 
-                int val =  valueChangeOnClick(view);
+                int val = valueChangeOnClick(view);
 
-                bottomRight = (Button)view;
+                bottomRight = (Button) view;
                 String buttonText = bottomRight.getText().toString();
 
                 //  Log.i("top Left Val", Integer.toString(val));
                 Log.i("button text", buttonText);
                 Log.i("multiplied val", Integer.toString(val));
 
-                if(buttonText.equals(Integer.toString(val))) {
+                if (buttonText.equals(Integer.toString(val))) {
                     Log.i("bottom Right Val", Integer.toString(val));
                     totalCorrect++;
                 }
@@ -229,7 +226,7 @@ import java.util.Random;
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                secondsRemain.setText(Integer.toString(  (int) millisUntilFinished / 1000));
+                secondsRemain.setText(Integer.toString((int) millisUntilFinished / 1000));
             }
 
             public void onFinish() {
