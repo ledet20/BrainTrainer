@@ -12,14 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-<<<<<<< HEAD
 
 public class GameTrainer extends AppCompatActivity {
->>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
 
-=======
-public class GameTrainer extends AppCompatActivity {
->>>>>>> a4a9bf13cd30eae20859941be6d7b0a8f2494271
 
     TextView secondsRemain;
     TextView scoreCount;
