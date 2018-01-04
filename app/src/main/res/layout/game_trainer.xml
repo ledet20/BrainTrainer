@@ -52,7 +52,8 @@
                 android:layout_rowSpan="1"
                 android:gravity="center"
                 android:onClick="valueChange"
-                android:tag="0" />
+                android:tag="0"
+                android:text="1" />
 
             <Button
                 android:id="@+id/topRight"
@@ -63,7 +64,8 @@
                 android:layout_rowSpan="2"
                 android:gravity="center"
                 android:onClick="valueChange"
-                android:tag="1" />
+                android:tag="1"
+                android:text="2" />
 
             <Button
                 android:id="@+id/bottomLeft"
@@ -75,7 +77,8 @@
                 android:layout_rowSpan="1"
                 android:gravity="center"
                 android:onClick="valueChange"
-                android:tag="2" />
+                android:tag="2"
+                android:text="3" />
 
             <Button
                 android:id="@+id/bottomRight"
@@ -87,7 +90,8 @@
                 android:layout_rowSpan="1"
                 android:gravity="center"
                 android:onClick="valueChange"
-                android:tag="3" />
+                android:tag="3"
+                android:text="4" />
         </GridLayout>
 
         <TextView
@@ -118,6 +122,7 @@
             android:layout_marginRight="49dp"
             android:layout_marginStart="49dp"
             android:gravity="center"
+            android:text="2*2"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/secondsRemain"
             app:layout_constraintHorizontal_bias="0.111"
