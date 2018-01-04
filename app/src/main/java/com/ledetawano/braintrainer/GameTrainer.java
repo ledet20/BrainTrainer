@@ -46,8 +46,9 @@ import java.util.Random;
         return randVal;
     }
 
-    // on click function for the four button that update the score and generate a new random values and multiply values
-    public void valueChange(View view) {
+
+
+    public int valueChangeOnClick(View view) {
 
         int randVal1 = randomMultiplyVal();
         int randVal2 = randomMultiplyVal();
@@ -57,14 +58,7 @@ import java.util.Random;
         // stores a rand index value from 0-3 and then in teh for loop checks if the index values match
         correctAnswerIndex = rand.nextInt(4);
 
-        // gets the current (previous) value of the button clicked
-        Button b = (Button)view;
-        String buttonText = b.getText().toString();
-
-        Log.i("clicked botton value ", buttonText);
-        Log.i("multiply answer " , Integer.toString(multiplyAnswer));
-
-         randValues = new ArrayList<Integer>();
+        randValues = new ArrayList<Integer>();
 
         // for loop that add values to the arrayList
         for(int i = 0; i < 4; i++) {
@@ -77,32 +71,32 @@ import java.util.Random;
 
         }
 
-        totalVal = setTotalClicked();
-
-        multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2) );
-
-
-
-        // if statement that checks if the current button tag is eqaul to the answer index
-        // currently this implentation is not working
-
-        if(buttonText.equals(Integer.toString(multiplyAnswer))){
-          totalCorrect+=1;
-           Log.i("tag val inside",  ((Button) view).getText().toString());
-        }
-
-
-        scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
-
-
         // adds random values to the buttons
         bottomRight.setText(Integer.toString(randValues.get(0)));
         topRight.setText(Integer.toString(randValues.get(1)));
         topLeft.setText(Integer.toString(randValues.get(2)));
         bottomLeft.setText(Integer.toString(randValues.get(3)));
 
+        totalVal = setTotalClicked();
+
+        multiplyValues.setText(Integer.toString(randVal1) + "*" + Integer.toString(randVal2) );
+
+
+        // if statement that checks if the current button tag is eqaul to the answer index
+        // currently this implentation is not working
+      // if(view.toString().equals(Integer.toString(multiplyAnswer))){
+       //   totalCorrect++;
+        //   Log.i("the value is" , "CORREC");
+      // }
+
+        scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
+
+
+        return multiplyAnswer;
+
 
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +111,103 @@ import java.util.Random;
         bottomLeft = (Button) findViewById(R.id.bottomLeft);
         bottomRight = (Button) findViewById(R.id.bottomRight);
 
+
+        topLeft.setOnClickListener(new View.OnClickListener(
+
+        ) {
+            @Override
+            public void onClick(View view) {
+
+                // returns multiplied value generated from function
+               int val =  valueChangeOnClick(view);
+
+                // get the text of the current button
+                topLeft = (Button)view;
+                String buttonText = topLeft.getText().toString();
+
+              //  Log.i("top Left Val", Integer.toString(val));
+                Log.i("button text", buttonText);
+                Log.i("multiplied val", Integer.toString(val));
+
+                if(buttonText.equals(Integer.toString(val))) {
+                    Log.i("top Left Val", Integer.toString(val));
+                    totalCorrect++;
+                }
+
+
+            }
+        });
+
+        topRight.setOnClickListener(new View.OnClickListener(
+
+        ) {
+            @Override
+            public void onClick(View view) {
+
+                int val =  valueChangeOnClick(view);
+
+                topRight = (Button)view;
+                String buttonText = topRight.getText().toString();
+
+                //  Log.i("top Left Val", Integer.toString(val));
+                Log.i("button text", buttonText);
+                Log.i("multiplied val", Integer.toString(val));
+
+                if(buttonText.equals(Integer.toString(val))) {
+                    Log.i("top Right Val", Integer.toString(val));
+                    totalCorrect++;
+                }
+
+
+            }
+        });
+
+        bottomLeft.setOnClickListener(new View.OnClickListener(
+
+        ) {
+            @Override
+            public void onClick(View view) {
+
+                int val =  valueChangeOnClick(view);
+
+                bottomLeft = (Button)view;
+                String buttonText = bottomLeft.getText().toString();
+
+                //  Log.i("top Left Val", Integer.toString(val));
+                Log.i("button text", buttonText);
+                Log.i("multiplied val", Integer.toString(val));
+
+                if(buttonText.equals(Integer.toString(val))) {
+                    Log.i("bottom left Val", Integer.toString(val));
+                    totalCorrect++;
+                }
+
+            }
+        });
+
+        bottomRight.setOnClickListener(new View.OnClickListener(
+
+        ) {
+            @Override
+            public void onClick(View view) {
+
+                int val =  valueChangeOnClick(view);
+
+                bottomRight = (Button)view;
+                String buttonText = bottomRight.getText().toString();
+
+                //  Log.i("top Left Val", Integer.toString(val));
+                Log.i("button text", buttonText);
+                Log.i("multiplied val", Integer.toString(val));
+
+                if(buttonText.equals(Integer.toString(val))) {
+                    Log.i("bottom Right Val", Integer.toString(val));
+                    totalCorrect++;
+                }
+
+
+            }
+        });
 
         // timer that runs for 30 seconds, when the time is up the game is over
         new CountDownTimer(30000, 1000) {
