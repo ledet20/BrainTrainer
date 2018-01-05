@@ -1,5 +1,6 @@
 package com.ledetawano.braintrainer;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -25,6 +26,7 @@ public class GameTrainer extends AppCompatActivity {
     Button topLeft;
     Button topRight;
     Button bottomLeft;
+    Button playAgin;
     TextView resultTextView;
     ArrayList<Integer> randValues = new ArrayList<>();
     Button bottomRight;
@@ -34,6 +36,14 @@ public class GameTrainer extends AppCompatActivity {
     Random rand = new Random();
     Random r = new Random();
     int correctAnswerIndex;
+
+    public void backToMain(View view) {
+
+        Intent i=new Intent(this, MainActivity.class);
+
+        startActivity(i);
+
+    }
 
     public int setTotalClicked() {
         return totalClicked++;
@@ -108,6 +118,12 @@ public class GameTrainer extends AppCompatActivity {
         topRight = (Button) findViewById(R.id.topRight);
         bottomLeft = (Button) findViewById(R.id.bottomLeft);
         bottomRight = (Button) findViewById(R.id.bottomRight);
+        playAgin = (Button) findViewById(R.id.playAgain);
+
+        topLeft.setEnabled(true);
+        topRight.setEnabled(true);
+        bottomLeft.setEnabled(true);
+        bottomRight.setEnabled(true);
 
 
         updateRandomValue();
@@ -120,7 +136,7 @@ public class GameTrainer extends AppCompatActivity {
 
                 secondsRemain.setText(Integer.toString((int) millisUntilFinished / 1000));
 
-                if( (int) millisUntilFinished < 6000 && (int) millisUntilFinished > 4800) {
+                if( (int) millisUntilFinished < 6000 && (int) millisUntilFinished > 4900) {
 
                     Toast.makeText(getApplicationContext(), (String) "5 seconds left ", Toast.LENGTH_SHORT).show();
 
@@ -136,6 +152,7 @@ public class GameTrainer extends AppCompatActivity {
                 topLeft.setEnabled(false);
                 bottomRight.setEnabled(false);
                 topRight.setEnabled(false);
+                playAgin.setVisibility(View.VISIBLE);
 
             }
         }.start();

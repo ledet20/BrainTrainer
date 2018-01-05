@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="ligthBlue">#a7dcf2</color>
     <color name="lightOrange">#f7cdaa</color>
+    <color name="lighGreen">#b4e597</color>
     <color name="colorAccent">#a0dae8</color>
 
 </resources>
