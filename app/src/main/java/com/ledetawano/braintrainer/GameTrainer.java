@@ -117,7 +117,7 @@ public class GameTrainer extends AppCompatActivity {
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                
+
                 secondsRemain.setText(Integer.toString((int) millisUntilFinished / 1000));
 
                 if( (int) millisUntilFinished < 6000 && (int) millisUntilFinished > 4800) {
@@ -130,7 +130,12 @@ public class GameTrainer extends AppCompatActivity {
             public void onFinish() {
                 secondsRemain.setText("0");
                 resultTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f);
+                resultTextView.setBackgroundColor(Color.parseColor("#ADC5ED"));
                 resultTextView.setText("Total Score: " + Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
+                bottomLeft.setEnabled(false);
+                topLeft.setEnabled(false);
+                bottomRight.setEnabled(false);
+                topRight.setEnabled(false);
 
             }
         }.start();
