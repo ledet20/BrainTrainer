@@ -4,5 +4,5 @@ Android app that gives you 30 seconds to answer as many multiplied values as pos
 
 ## Game Screenshots 
 
- ![picture](https://raw.githubusercontent.com/brainTrainer/app/src/main/res/drawable/mainPageApp.png)
+ ![picture](https://raw.githubusercontent.com/AndroidStudioProjects/brainTrainer/app/src/main/res/drawable/mainPageApp.png)
 
