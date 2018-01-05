@@ -9,6 +9,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,7 +117,14 @@ public class GameTrainer extends AppCompatActivity {
         new CountDownTimer(30000, 1000) {
 
             public void onTick(long millisUntilFinished) {
+                
                 secondsRemain.setText(Integer.toString((int) millisUntilFinished / 1000));
+
+                if( (int) millisUntilFinished < 6000 && (int) millisUntilFinished > 4800) {
+
+                    Toast.makeText(getApplicationContext(), (String) "5 seconds left ", Toast.LENGTH_SHORT).show();
+
+                }
             }
 
             public void onFinish() {
