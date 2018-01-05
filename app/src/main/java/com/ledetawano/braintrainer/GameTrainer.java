@@ -1,9 +1,11 @@
 package com.ledetawano.braintrainer;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ public class GameTrainer extends AppCompatActivity {
     Button topLeft;
     Button topRight;
     Button bottomLeft;
+    TextView resultTextView;
     ArrayList<Integer> randValues = new ArrayList<>();
     Button bottomRight;
     int totalClicked = 1;
@@ -41,7 +44,7 @@ public class GameTrainer extends AppCompatActivity {
         return randVal;
     }
 
-    public void getRandomValue() {
+    public void updateRandomValue() {
         int val1 = randomMultiplyVal();
         int val2 = randomMultiplyVal();
 
@@ -76,12 +79,18 @@ public class GameTrainer extends AppCompatActivity {
 
         if(view.getTag().toString().equals(Integer.toString(correctAnswerIndex))) {
             totalCorrect++;
-        }
+            resultTextView.setText("Correct!");
+            resultTextView.setBackgroundColor(Color.parseColor("#B4E597"));
 
+        } else {
+            resultTextView.setText("Nope");
+            resultTextView.setBackgroundColor(Color.TRANSPARENT);
+
+        }
 
         scoreCount.setText(Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
 
-        getRandomValue();
+        updateRandomValue();
 
     }
 
@@ -93,13 +102,14 @@ public class GameTrainer extends AppCompatActivity {
         secondsRemain = (TextView) findViewById(R.id.secondsRemain);
         scoreCount = (TextView) findViewById(R.id.scoreCount);
         multiplyValues = (TextView) findViewById(R.id.multiplyVal);
+        resultTextView = (TextView) findViewById(R.id.resultTextView);
         topLeft = (Button) findViewById(R.id.topLeft);
         topRight = (Button) findViewById(R.id.topRight);
         bottomLeft = (Button) findViewById(R.id.bottomLeft);
         bottomRight = (Button) findViewById(R.id.bottomRight);
 
 
-        getRandomValue();
+        updateRandomValue();
 
 
         // timer that runs for 30 seconds, when the time is up the game is over
@@ -111,6 +121,9 @@ public class GameTrainer extends AppCompatActivity {
 
             public void onFinish() {
                 secondsRemain.setText("0");
+                resultTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f);
+                resultTextView.setText("Total Score: " + Integer.toString(totalCorrect) + "/" + Integer.toString(totalVal));
+
             }
         }.start();
 
